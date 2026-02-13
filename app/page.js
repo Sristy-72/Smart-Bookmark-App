@@ -120,11 +120,12 @@ async function addBookmark(e) {
     return (
       <div className="flex h-screen justify-center items-center">
         <button
-          onClick={login}
-          className="bg-gray-800 text-white px-4 py-2 rounded"
-        >
-          Login with Google
-        </button>
+  onClick={login}
+  className="bg-blue-500 hover:bg-blue-600 transition px-6 py-3 rounded-xl shadow-lg"
+>
+  Continue with Google
+</button>
+
       </div>
     );
   }
@@ -137,33 +138,39 @@ async function addBookmark(e) {
         <button onClick={logout}>Logout</button>
       </div>
 
-      <form onSubmit={addBookmark} className="flex gap-2 mb-6">
+      <form
+  onSubmit={addBookmark}
+  className="bg-gray-900 p-4 rounded-xl mb-6 flex gap-2"
+>
 
-        <input
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="border p-2 flex-1"
-          required
-        />
+<input
+  placeholder="Title"
+  className="bg-gray-800 border border-gray-700 rounded px-3 py-2 flex-1 outline-none focus:border-blue-400"
+/>
 
-        <input
-          placeholder="URL"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          className="border p-2 flex-1"
-          required
-        />
+<input
+  placeholder="URL"
+  className="bg-gray-800 border border-gray-700 rounded px-3 py-2 flex-1 outline-none focus:border-blue-400"
+/>
 
-        <button className="bg-black text-white px-4">
-          Add
-        </button>
+<button className="bg-blue-500 hover:bg-blue-600 px-4 rounded transition">
+  Add
+</button>
 
-      </form>
+</form>
+
 
       <div className="space-y-2">
+       {bookmarks.length === 0 && (
+    <p className="text-center text-gray-400 py-10">
+      No bookmarks yet — add your first one 🚀
+    </p>
+  )}
+
 
        {bookmarks.map((b) => (
+
+        
   <div key={b.id} className="border p-3 flex justify-between">
 
     <div>
@@ -178,6 +185,7 @@ async function addBookmark(e) {
     </button>
 
   </div>
+  
 ))}
 
       </div>
