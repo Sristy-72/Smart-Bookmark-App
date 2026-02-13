@@ -124,7 +124,7 @@ Added:
 
 - Loading indicators for async actions
 - Disabled buttons during requests
-- Success feedback animation
+
 
 ---
 
